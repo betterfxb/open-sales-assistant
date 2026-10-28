@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库后台管理</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">智</span>
+        <div>
+          <p>销售运营 Agent</p>
+          <h1 id="siteTitle">线索跟进工作台</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <span class="status-pill" id="healthStatus">服务检测中</span>
+        <span class="status-pill" id="adminUser">未登录</span>
+        <a class="nav-link" href="/" target="_blank">打开客户咨询</a>
+        <button class="ghost-btn" id="logoutBtn" type="button">退出</button>
+      </div>
+    </header>
+
+    <main class="view active">
+      <div class="admin-layout">
+        <aside class="admin-nav">
+          <button class="admin-tab active" data-panel="leadsPanel">销售线索</button>
+          <button class="admin-tab" data-panel="dashboardPanel">知识库总览</button>
+          <button class="admin-tab" data-panel="studentsPanel">客户咨询</button>
+          <button class="admin-tab" data-panel="materialsPanel">素材管理</button>
+          <button class="admin-tab" data-panel="knowledgePanel">知识库编辑</button>
+          <button class="admin-tab" data-panel="settingsPanel">咨询配置</button>
+          <button class="admin-tab hidden" id="teamTab" data-panel="teamPanel">团队成员</button>
+        </aside>
+
+        <section class="admin-main">
+          <div class="admin-panel" id="dashboardPanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Dashboard</p>
+                <h2>知识库总览</h2>
+              </div>
+              <button class="primary-btn" id="generateBtn" type="button">AI 全量整理知识库</button>
+            </div>
+            <div class="metrics">
+              <div class="metric"><span id="materialCount">0</span><p>素材数量</p></div>
+              <div class="metric"><span id="imageCount">0</span><p>图片素材</p></div>
+              <div class="metric"><span id="faqCount">0</span><p>常见问题</p></div>
+              <div class="metric"><span id="playbookCount">0</span><p>销售话术</p></div>
+            </div>
+            <div class="content-card">
+              <h3>当前知识库摘要</h3>
+              <p id="overviewPreview">暂无知识库内容。</p>
+            </div>
+            <div class="content-card">
+              <div class="section-head-inline">
+                <h3>最近操作日志</h3>
+                <span class="muted-line">Recent activity</span>
+              </div>
+              <div class="operation-log-list" id="operationLogsList">暂无操作日志</div>
+            </div>
+          </div>
+
+          <div class="admin-panel active" id="leadsPanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Sales workspace</p>
+                <h2>销售线索与跟进</h2>
+                <p class="muted-line">把每条线索的阶段、负责人、沟通记录和下一步放在同一处。</p>
+              </div>
+              <div class="lead-toolbar-actions">
+                <button class="secondary-btn" id="toggleLeadCreateBtn" type="button">＋ 新建线索</button>
+                <form id="leadImportForm" class="lead-import-form">
+                  <input id="leadImportFile" name="file" type="file" accept=".csv,.xlsx" required>
+                  <button class="primary-btn" type="submit">导入 CSV / XLSX</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="metrics lead-metrics">
+              <div class="metric"><span id="leadOpenCount">0</span><p>跟进中线索</p></div>
+              <div class="metric"><span id="leadDueCount">0</span><p>到期待跟进</p></div>
+              <div class="metric"><span id="leadHighIntentCount">0</span><p>高意向线索</p></div>
+              <div class="metric"><span id="leadWonCount">0</span><p>累计成交</p></div>
+            </div>
+
+            <form class="content-card lead-create-form hidden" id="leadCreateForm">
+              <div class="section-head-inline">
+                <div><h3>新增线索</h3><p>先记录联系人和下一步，不需要一次填完所有资料。</p></div>
+                <button class="ghost-btn" id="cancelLeadCreateBtn" type="button">取消</button>
+              </div>
+              <div class="lead-form-grid">
+                <label>联系人<input name="name" required placeholder="例如：王女士"></label>
+                <label>公司 / 组织<input name="company" placeholder="公司名称"></label>
+                <label>电话<input name="phone" inputmode="tel"></label>
+                <label>邮箱<input name="email" type="email"></label>
+                <label>线索来源<input name="source" placeholder="例如：官网、活动、转介绍"></label>
+                <label>负责人<select name="ownerId" id="leadCreateOwner"><option value="">当前账号</option></select></label>
+                <label>销售阶段<select name="stage"><option value="new">新线索</option><option value="contacted">已联系</option><option value="qualified">需求明确</option><option value="proposal">方案 / 报价</option><option value="won">已成交</option><option value="lost">已关闭</option></select></label>
+                <label>下次跟进日期<input name="nextFollowUpAt" type="date"></label>
+                <label>意向等级<select name="intentLevel"><option value="unknown">待判断</option><option value="high">高</option><option value="medium">中</option><option value="low">低</option></select></label>
+                <label class="wide-field">需求摘要<textarea name="summary" rows="3" placeholder="客户要解决的问题、预算或决策流程（已确认的内容）"></textarea></label>
+              </div>
+              <div class="lead-form-actions"><button class="primary-btn" type="submit">保存线索</button></div>
+            </form>
+
+            <div class="content-card lead-queue-card">
+              <div class="section-head-inline">
+                <div><h3>今日及逾期待跟进</h3><p id="leadQueueHint">按跟进日期排序，已成交和已关闭的线索自动隐藏。</p></div>
+                <span class="status-pill" id="leadOverdueBadge">暂无逾期</span>
+              </div>
+              <div class="lead-queue-list" id="leadQueueList"><p class="empty-text">暂无待跟进线索。</p></div>
+            </div>
+
+            <div class="lead-workspace">
+              <div class="content-card lead-list-card">
+                <div class="student-list-head"><h3>全部线索</h3><span id="leadTotal">0 条</span></div>
+                <div class="student-filter-bar lead-filter-bar">
+                  <input id="leadSearch" placeholder="搜索联系人、公司、电话、负责人">
+                  <select id="leadStageFilter">
+                    <option value="all">所有阶段</option><option value="new">新线索</option><option value="contacted">已联系</option><option value="qualified">需求明确</option><option value="proposal">方案 / 报价</option><option value="won">已成交</option><option value="lost">已关闭</option>
+                  </select>
+                </div>
+                <div class="student-table" id="leadsList"><div class="detail-empty">添加第一条线索，或导入已有客户名单。</div></div>
+              </div>
+
+              <div class="content-card lead-detail-card">
+                <div id="leadDetailEmpty" class="detail-empty">选择一条线索查看详情，记录沟通并安排下一步。</div>
+                <div id="leadDetail" class="hidden">
+                  <div class="detail-head">
+                    <div><p class="eyebrow">Lead profile</p><h3 id="leadDetailTitle">线索详情</h3><p id="leadDetailMeta">-</p></div>
+                    <div class="detail-actions">
+                      <button class="secondary-btn" id="leadCopilotBtn" type="button">AI 跟进建议</button>
+                      <button class="delete-btn" id="deleteLeadBtn" type="button">删除</button>
+                    </div>
+                    <p class="lead-privacy-note">使用 AI 时会把需求摘要、阶段、意向和沟通记录发送到已配置的模型服务；联系人和公司字段不会单独发送，生成内容只作为草稿。</p>
+                  </div>
+                  <form id="leadEditForm" class="lead-form-grid">
+                    <label>联系人<input name="name" required></label>
+                    <label>公司 / 组织<input name="company"></label>
+                    <label>电话<input name="phone" inputmode="tel"></label>
+                    <label>邮箱<input name="email" type="email"></label>
+                    <label>线索来源<input name="source"></label>
+                    <label>负责人<select name="ownerId" id="leadEditOwner"></select></label>
+                    <label>销售阶段<select name="stage"><option value="new">新线索</option><option value="contacted">已联系</option><option value="qualified">需求明确</option><option value="proposal">方案 / 报价</option><option value="won">已成交</option><option value="lost">已关闭</option></select></label>
+                    <label>下次跟进日期<input name="nextFollowUpAt" type="date"></label>
+                    <label>意向等级<select name="intentLevel"><option value="unknown">待判断</option><option value="high">高</option><option value="medium">中</option><option value="low">低</option></select></label>
+                    <label class="wide-field">需求摘要<textarea name="summary" rows="3"></textarea></label>
+                    <button class="primary-btn wide-field" type="submit">保存线索资料</button>
+                  </form>
+
+                  <div class="lead-ai-box hidden" id="leadAiSuggestion"></div>
+
+                  <section class="lead-activity-section">
+                    <h3>沟通记录</h3>
+                    <form id="leadActivityForm" class="lead-activity-form">
+                      <div class="lead-activity-fields">
+                        <label>沟通方式<select name="type"><option value="call">电话</option><option value="message">微信 / 消息</option><option value="meeting">会议</option><option value="email">邮件</option><option value="note">其他</option></select></label>
+                        <label>安排下次跟进<input name="nextFollowUpAt" type="date" title="留空时不更改现有日期"></label>
+                      </div>
+                      <label>沟通摘要<textarea name="content" rows="3" required placeholder="记录客户反馈、异议、已确认事项和下一步"></textarea></label>
+                      <button class="secondary-btn" type="submit">保存沟通记录</button>
+                    </form>
+                    <div class="lead-activity-list" id="leadActivityList"><p class="empty-text">暂无沟通记录。</p></div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-panel" id="studentsPanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Students</p>
+                <h2>客户咨询记录</h2>
+              </div>
+            </div>
+            <div class="student-admin-layout">
+              <div class="content-card student-list-card">
+                <div class="student-list-head">
+                  <h3>学员列表</h3>
+                  <span id="studentTotal">0 人</span>
+                </div>
+                <div class="student-filter-bar">
+                  <input id="studentSearch" placeholder="搜索昵称、姓名、电话、现状">
+                  <select id="studentSort">
+                    <option value="createdAt_desc">最近注册</option>
+                    <option value="lastChatAt_desc">最近咨询</option>
+                    <option value="intentLevel_desc">意向值高到低</option>
+                    <option value="chatCount_desc">聊天最多</option>
+                    <option value="nickname_asc">昵称 A-Z</option>
+                  </select>
+                </div>
+                <div class="student-table" id="studentsList">暂无学员</div>
+                <div class="student-pagination">
+                  <button class="ghost-btn" id="studentPrevPage" type="button">上一页</button>
+                  <span id="studentPageInfo">第 1 页</span>
+                  <button class="ghost-btn" id="studentNextPage" type="button">下一页</button>
+                </div>
+              </div>
+
+              <div class="content-card student-detail-card">
+                <div id="studentDetailEmpty" class="detail-empty">请选择一位学员查看画像。</div>
+                <div id="studentDetail" class="student-detail hidden">
+                  <div class="detail-head">
+                    <div>
+                      <p class="eyebrow">Profile</p>
+                      <h3 id="detailTitle">学员画像</h3>
+                      <p id="detailMeta">-</p>
+                    </div>
+                    <div class="detail-actions">
+                      <button class="secondary-btn" id="analyzeDetailBtn" type="button">AI 分析</button>
+                      <button class="delete-btn" id="deleteStudentBtn" type="button">删除学员</button>
+                    </div>
+                  </div>
+
+                  <div class="detail-tabs">
+                    <button class="detail-tab active" data-student-view="profile" type="button">学员画像</button>
+                    <button class="detail-tab" data-student-view="chats" type="button">聊天记录</button>
+                  </div>
+
+                  <section class="student-detail-view active" id="studentProfileView">
+                    <form class="student-profile-form" id="studentProfileForm">
+                      <label>昵称<input name="nickname" required></label>
+                      <label>姓名<input name="name" placeholder="AI 可根据聊天记录识别"></label>
+                      <label>电话<input name="phone" inputmode="tel"></label>
+                      <label>年龄<input name="age" inputmode="numeric"></label>
+                      <label>性别
+                        <select name="gender">
+                          <option value="">未填写</option>
+                          <option value="男">男</option>
+                          <option value="女">女</option>
+                          <option value="其他">其他</option>
+                        </select>
+                      </label>
+                      <label>身份证<input name="idCard"></label>
+                      <label>意向值
+                        <select name="intentLevel">
+                          <option value="unknown">未知</option>
+                          <option value="low">低</option>
+                          <option value="medium">中</option>
+                          <option value="high">高</option>
+                        </select>
+                      </label>
+                      <label class="wide-field">现状<textarea name="currentStatus" rows="3" placeholder="例如：零基础、想转行、已从业想提升、在职时间有限"></textarea></label>
+                      <label class="wide-field">学员画像摘要<textarea name="profileSummary" rows="4"></textarea></label>
+                      <label class="wide-field">建议下一步跟进<textarea name="nextAction" rows="4"></textarea></label>
+                      <button class="primary-btn wide-field" type="submit">保存学员资料</button>
+                    </form>
+                    <div class="analysis-box" id="studentAnalysisBox">暂无 AI 分析。</div>
+                  </section>
+
+                  <section class="student-detail-view" id="studentChatsView">
+                    <form class="dialog-form follow-form" id="studentFollowForm">
+                      <label>新增跟进记录<textarea name="content" rows="3" placeholder="记录电话、微信沟通、下一步计划"></textarea></label>
+                      <button class="secondary-btn" type="submit">保存跟进</button>
+                    </form>
+                    <div id="studentFollowUps" class="follow-list"></div>
+                    <div id="studentChats" class="chat-record-box">暂无聊天记录。</div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-panel" id="certificatesPanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Certificates</p>
+                <h2>证书维护</h2>
+              </div>
+            </div>
+            <form class="content-card form-stack" id="certificateForm">
+              <h3>新增证书</h3>
+              <label>姓名<input name="name" required></label>
+              <label>手机号<input name="phone"></label>
+              <label>项目/证书名称<input name="courseTitle" placeholder="例如：运动康复结业证书"></label>
+              <label>证书编号<input name="certNo"></label>
+              <label>状态<input name="status" placeholder="学习中 / 已结业 / 办理中 / 已发放"></label>
+              <label>发放时间<input name="issuedAt"></label>
+              <button class="primary-btn" type="submit">保存证书</button>
+            </form>
+            <form class="content-card form-stack" id="certificateImportForm">
+              <h3>批量导入证书</h3>
+              <p>支持 Excel / CSV。表头建议：姓名、手机号、项目、证书编号、状态、发放时间。</p>
+              <input name="file" type="file" accept=".xlsx,.xls,.csv" required>
+              <button class="secondary-btn" type="submit">导入证书</button>
+            </form>
+            <div class="content-card">
+              <h3>证书列表</h3>
+              <div class="table-list" id="certificatesList">暂无证书</div>
+            </div>
+          </div>
+
+          <div class="admin-panel" id="materialsPanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Materials</p>
+                <h2>素材管理</h2>
+              </div>
+              <button class="ghost-btn" id="refreshBtn" type="button">刷新数据</button>
+            </div>
+
+            <div class="material-grid">
+              <form class="content-card form-stack" id="textForm">
+                <h3>添加文字素材</h3>
+                <label>分类<input name="category" placeholder="项目介绍 / 证书政策 / 售前话术"></label>
+                <label>标题<input name="title" placeholder="例如：健康管理师项目介绍"></label>
+                <label>内容<textarea name="content" rows="8" placeholder="粘贴项目介绍、销售话术、FAQ、证书说明等"></textarea></label>
+                <button class="primary-btn" type="submit">保存并 AI 分析</button>
+              </form>
+
+              <form class="content-card form-stack" id="uploadForm">
+                <h3>上传文档 / 图片</h3>
+                <label>分类<input name="category" placeholder="图片素材 / 项目资料 / 证书样例"></label>
+                <label>统一标题<input name="title" placeholder="不填则使用文件名"></label>
+                <label>补充说明<textarea name="description" rows="4" placeholder="说明图片或文档适合什么咨询场景"></textarea></label>
+                <input id="fileInput" name="files" type="file" multiple>
+                <button class="secondary-btn" type="submit">上传并 AI 分析</button>
+              </form>
+            </div>
+
+            <div class="content-card">
+              <h3>素材列表</h3>
+              <div class="materials-list" id="materialsList">暂无素材</div>
+            </div>
+          </div>
+
+          <div class="admin-panel" id="knowledgePanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Knowledge</p>
+                <h2>知识库编辑</h2>
+              </div>
+              <button class="primary-btn" id="saveKnowledgeBtn" type="button">保存知识库</button>
+            </div>
+            <div class="knowledge-form-grid">
+              <label class="wide-field">知识库摘要<textarea id="knowledgeOverview" rows="6" placeholder="概括团队、产品、适合人群、核心卖点等"></textarea></label>
+              <section class="structured-editor wide-field">
+                <div class="structured-head">
+                  <div>
+                    <h3>销售话术</h3>
+                    <p>按场景维护销售可用话术，上传素材只会生成待审核建议，不会自动覆盖这里。</p>
+                  </div>
+                  <button class="secondary-btn" id="addPlaybookBtn" type="button">添加话术</button>
+                </div>
+                <div class="structured-list" id="salesPlaybook"></div>
+              </section>
+
+              <section class="structured-editor">
+                <div class="structured-head">
+                  <div>
+                    <h3>常见问题</h3>
+                    <p>填写学员常问的问题和标准答复。</p>
+                  </div>
+                  <button class="secondary-btn" id="addFaqBtn" type="button">添加问题</button>
+                </div>
+                <div class="structured-list" id="faqEditor"></div>
+              </section>
+
+              <section class="structured-editor">
+                <div class="structured-head">
+                  <div>
+                    <h3>顾虑应对</h3>
+                    <p>填写学员常见顾虑和销售应对话术。</p>
+                  </div>
+                  <button class="secondary-btn" id="addConcernBtn" type="button">添加顾虑</button>
+                </div>
+                <div class="structured-list" id="concernsEditor"></div>
+              </section>
+
+              <section class="structured-editor wide-field">
+                <div class="structured-head">
+                  <div>
+                    <h3>AI 待审核建议</h3>
+                    <p>素材分析后会进入这里。采纳后才进入正式知识库，忽略则不再显示。</p>
+                  </div>
+                  <span class="status-pill" id="suggestionCount">0 条待审核</span>
+                </div>
+                <div class="structured-list" id="suggestionsList"></div>
+              </section>
+            </div>
+          </div>
+
+          <div class="admin-panel" id="settingsPanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Settings</p>
+                <h2>咨询配置</h2>
+              </div>
+              <button class="primary-btn" id="saveSettingsBtn" type="button">保存配置</button>
+            </div>
+            <form class="settings-form" id="settingsForm">
+              <label>前台名称<input name="siteName"></label>
+              <label>欢迎语<textarea name="welcomeText" rows="3"></textarea></label>
+              <label>绑定客服名称<input name="serviceName" placeholder="例如：张老师"></label>
+              <label>绑定客服电话<input name="servicePhone" placeholder="例如：13800000000"></label>
+              <label>销售顾问人设<textarea name="salesPersona" rows="4"></textarea></label>
+              <label>答复收尾引导<textarea name="contactHint" rows="3"></textarea></label>
+              <label>安全边界<textarea name="safetyRules" rows="4"></textarea></label>
+            </form>
+          </div>
+
+          <div class="admin-panel" id="teamPanel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Team access</p>
+                <h2>团队成员与权限</h2>
+                <p class="muted-line">成员各自使用独立账号；销售只能查看和跟进分配给自己的线索。</p>
+              </div>
+            </div>
+            <form class="content-card form-stack" id="teamMemberForm">
+              <h3>添加团队成员</h3>
+              <label>姓名<input name="realName" required maxlength="80"></label>
+              <label>登录用户名<input name="username" required minlength="2" maxlength="32" autocomplete="off"></label>
+              <label>初始密码<input name="password" type="password" required minlength="12" autocomplete="new-password"></label>
+              <label>角色<select name="role"><option value="sales_rep">销售</option><option value="manager">销售主管</option></select></label>
+              <button class="primary-btn" type="submit">创建账号</button>
+            </form>
+            <div class="content-card">
+              <h3>成员账号</h3>
+              <div class="table-list" id="teamMembersList">暂无团队成员</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/i18n.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

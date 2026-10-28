@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+npm-debug.log*
+uploads/
+data/backups/
+*.zip
+*.tar
+*.tar.gz
+*.log
+
+# Keep unfinished launch copy out of public repository snapshots.
+docs/线上首发包草案.md

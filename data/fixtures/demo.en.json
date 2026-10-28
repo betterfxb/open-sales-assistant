@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 2,
+  "settings": {
+    "demoLanguage": "en",
+    "siteName": "Apex Recovery Course Advisor",
+    "welcomeText": "Hi, I am your course advisor. You can ask about the right audience, learning schedule, certificate process, pricing, and enrollment steps.",
+    "serviceName": "Alex",
+    "servicePhone": "+1 555 010 2333",
+    "salesPersona": "Friendly, professional, specific, and careful with promises. Reply like an experienced team sales advisor.",
+    "contactHint": "If you want, I can help you compare the right course path, upcoming cohorts, and enrollment steps.",
+    "safetyRules": "Do not guarantee passing, certification, employment, income, or treatment outcomes. Pricing, certificate policy, and cohort dates must follow the team's latest confirmed information."
+  },
+  "materials": [
+    {
+      "id": "mat_demo_recovery_course",
+      "type": "text",
+      "title": "Apex Recovery AOPT Sports Rehabilitation Course",
+      "category": "Course Introduction",
+      "description": "Demo material for an English training-course sales scenario.",
+      "content": "Apex Recovery AOPT Sports Rehabilitation Course\n\nCore highlights: original AOPT-aligned certification path, evidence-based rehabilitation framework, practical coaching, and dual learning format.\n\nCourse content: four body-region modules covering lumbar-pelvic, lower limb, upper limb, and neck-shoulder cases. Learners practice assessment, clinical reasoning, exercise prescription, biomechanics, fascia release concepts, and nerve mobility techniques.\n\nLearning format: self-paced online preparation through a learning platform plus 12 offline practical days delivered in 4 phases. Small cohorts of up to 40 learners make the course suitable for working professionals.\n\nBest fit: rehabilitation practitioners, fitness coaches, Pilates instructors, sports science students, and motivated beginners who want a structured path into sports rehabilitation consulting.\n\nImportant boundary: the course can improve knowledge and practical confidence, but it does not guarantee clinical results, certification outcomes, employment, or income.",
+      "createdAt": "2026-05-11T19:59:29.357Z",
+      "analysis": {
+        "summary": "Apex Recovery offers an AOPT-aligned sports rehabilitation course with online preparation and 12 offline practical training days. The program focuses on assessment, rehabilitation planning, and practical coaching for common movement and pain-related cases.",
+        "sellingPoints": [
+          "Structured curriculum: four body-region modules covering lumbar-pelvic, lower limb, upper limb, and neck-shoulder cases.",
+          "Practical delivery: online preparation plus offline coaching, hands-on correction, and case-based practice.",
+          "Professional relevance: useful for rehabilitation practitioners, fitness coaches, Pilates instructors, and sports science students.",
+          "Beginner-friendly path: motivated beginners can start with guided preparation and practical coaching.",
+          "Responsible sales boundary: no promises about passing, employment, income, or treatment outcomes."
+        ],
+        "faq": [
+          {
+            "question": "What certificate can learners receive?",
+            "answer": "Learners may receive the certificate described by the provider after completing the required training and assessment. The exact certificate name, policy, and eligibility should be confirmed with the latest official course information."
+          },
+          {
+            "question": "How is the offline schedule arranged?",
+            "answer": "The demo course is designed as 12 offline practical days delivered in 4 phases, combined with online preparation. The exact cohort dates should be confirmed before enrollment."
+          },
+          {
+            "question": "Can beginners join?",
+            "answer": "Yes, the course is beginner-friendly, but learners should complete the online preparation and expect hands-on practice during offline sessions."
+          }
+        ],
+        "concerns": [
+          {
+            "concern": "I am busy and may not have enough time.",
+            "response": "The course combines self-paced online preparation with phased offline practice, which is designed to be more manageable for working professionals. It is still important to review your schedule before committing."
+          },
+          {
+            "concern": "I am worried I will not be able to apply the skills.",
+            "response": "The course includes practical coaching and case-based training. Results still depend on practice, feedback, and real-world experience after the course."
+          },
+          {
+            "concern": "I am not sure whether the certificate is valuable.",
+            "response": "The certificate can support professional learning evidence, but its value depends on your market, employer, and professional goals. The latest certificate policy should be confirmed before payment."
+          }
+        ],
+        "tags": [
+          "sports rehabilitation",
+          "AOPT",
+          "course sales",
+          "fitness coach training",
+          "rehabilitation education",
+          "practical workshop"
+        ]
+      }
+    },
+    {
+      "id": "mat_demo_schedule",
+      "type": "text",
+      "title": "Demo Cohort Schedule",
+      "category": "Sales Notes",
+      "description": "Short demo note for schedule-related questions.",
+      "content": "Demo cohort schedule: new consultation sessions are opened every Wednesday. Actual enrollment deadlines, offline training dates, and seat availability must be confirmed by the course team before payment.",
+      "createdAt": "2026-05-11T14:30:20.061Z",
+      "analysis": {
+        "summary": "Consultation sessions open every Wednesday in the demo scenario. Final cohort dates and seat availability must be confirmed by the course team.",
+        "sellingPoints": [
+          "Weekly consultation rhythm helps prospects plan next steps.",
+          "Clear boundary: actual dates and availability require latest confirmation."
+        ],
+        "faq": [],
+        "concerns": [],
+        "imageUsage": ""
+      }
+    }
+  ],
+  "knowledge": {
+    "generatedAt": "2026-05-12T06:35:13.521Z",
+    "provider": "demo",
+    "siteName": "Apex Recovery Course Advisor",
+    "overview": "Apex Recovery Course Advisor is a demo sales assistant for a sports rehabilitation training program. The demo course combines online preparation with 12 offline practical training days across four body-region modules: lumbar-pelvic, lower limb, upper limb, and neck-shoulder. It is positioned for rehabilitation practitioners, fitness coaches, Pilates instructors, sports science students, and motivated beginners. The assistant should help prospects understand fit, schedule, certificate process, learning expectations, and next steps while avoiding guarantees about passing, employment, income, or clinical outcomes.",
+    "salesPlaybook": [
+      {
+        "id": "pb_demo_1",
+        "title": "Discovery opening",
+        "scenario": "First consultation",
+        "content": "Start by asking about the prospect's background: rehabilitation practitioner, fitness coach, Pilates instructor, student, or career changer. Then ask what client cases or skills they want to improve.",
+        "enabled": true,
+        "sourceMaterialId": "mat_demo_recovery_course",
+        "sourceMaterialTitle": "Apex Recovery AOPT Sports Rehabilitation Course",
+        "conflicts": []
+      },
+      {
+        "id": "pb_demo_2",
+        "title": "Beginner reassurance",
+        "scenario": "Beginner concern",
+        "content": "Explain that beginners can join, but they should complete online preparation and expect practical work. Avoid saying everyone will master the skill immediately.",
+        "enabled": true,
+        "sourceMaterialId": "mat_demo_recovery_course",
+        "sourceMaterialTitle": "Apex Recovery AOPT Sports Rehabilitation Course",
+        "conflicts": []
+      },
+      {
+        "id": "pb_demo_3",
+        "title": "Schedule fit",
+        "scenario": "Working professional",
+        "content": "Highlight the mixed format: self-paced online preparation plus 12 offline practical days in 4 phases. Ask the prospect about their next 2-3 months of availability before recommending a cohort.",
+        "enabled": true,
+        "sourceMaterialId": "mat_demo_schedule",
+        "sourceMaterialTitle": "Demo Cohort Schedule",
+        "conflicts": []
+      },
+      {
+        "id": "pb_demo_4",
+        "title": "Responsible close",
+        "scenario": "Enrollment next step",
+        "content": "Offer to check the latest cohort dates, seat availability, certificate policy, and pricing. Make it clear that final details follow the team's latest confirmed information.",
+        "enabled": true,
+        "sourceMaterialId": "mat_demo_recovery_course",
+        "sourceMaterialTitle": "Apex Recovery AOPT Sports Rehabilitation Course",
+        "conflicts": []
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is the course suitable for complete beginners?",
+        "answer": "Yes, motivated beginners can join. The course includes online preparation and practical coaching, but learners should be ready to study anatomy basics and practice after class.",
+        "conflicts": []
+      },
+      {
+        "question": "How long does the course take?",
+        "answer": "The demo course includes online preparation plus 12 offline practical days across 4 phases. Actual cohort dates and schedule details should be confirmed with the course team.",
+        "conflicts": []
+      },
+      {
+        "question": "What will I learn?",
+        "answer": "The course covers assessment, movement analysis, rehabilitation planning, exercise prescription, and practical coaching across lumbar-pelvic, lower limb, upper limb, and neck-shoulder modules.",
+        "conflicts": []
+      },
+      {
+        "question": "Is the certificate guaranteed?",
+        "answer": "No. Certificate eligibility depends on the provider's latest policy, attendance, and assessment requirements. The assistant should never guarantee certification.",
+        "conflicts": []
+      },
+      {
+        "question": "How much does it cost?",
+        "answer": "Pricing is not fixed in this demo. The advisor should ask for the prospect's preferred cohort and then confirm the latest price and payment options with the course team.",
+        "conflicts": []
+      }
+    ],
+    "concerns": [
+      {
+        "concern": "I am busy and may not have time.",
+        "response": "That is a common concern. The mixed format helps because online preparation is flexible and offline practice is split into phases. Before choosing a cohort, it is best to compare the schedule with your next 2-3 months of work commitments.",
+        "conflicts": []
+      },
+      {
+        "concern": "I am afraid I will not learn well as a beginner.",
+        "response": "The course is beginner-friendly, but it still requires preparation and practice. A good next step is to review the beginner module or book a short planning call to see whether the pace fits you.",
+        "conflicts": []
+      },
+      {
+        "concern": "I am not sure whether the certificate helps my career.",
+        "response": "The certificate can support your learning record, but its value depends on your career path, local market, and employer expectations. It is safer to evaluate both the skills you will practice and the certificate policy before enrolling.",
+        "conflicts": []
+      }
+    ],
+    "tags": [
+      "demo data",
+      "sports rehabilitation",
+      "course sales",
+      "AI sales assistant",
+      "self-hosted CRM",
+      "knowledge base"
+    ],
+    "imageCards": [],
+    "sourceMaterialIds": [
+      "mat_demo_recovery_course",
+      "mat_demo_schedule"
+    ],
+    "updatedAt": "2026-05-12T06:35:13.521Z"
+  },
+  "students": [
+    {
+      "id": "stu_demo_maya",
+      "nickname": "Maya",
+      "passwordHash": "64bb9a4725f56682012c43742a687efd:b4774da8b083cd4078f87fa69b1a7645731cda485fff278f2823bc7b5fdbad7680100d14259ed6619fde637973b2ae55494eb5bc742083e14797402b1d4ec6ab",
+      "phone": "+1 555 010 1101",
+      "avatar": "",
+      "userCode": "DEMO1001",
+      "salesId": "",
+      "referrerCode": "",
+      "intentLevel": "medium",
+      "createdAt": "2026-05-12T05:42:05.904Z",
+      "lastLoginAt": "2026-05-12T05:42:05.904Z",
+      "name": "Maya Chen",
+      "age": "28",
+      "gender": "Female",
+      "idCard": "",
+      "currentStatus": "Beginner prospect, interested in schedule and learning difficulty.",
+      "profileSummary": "Maya is a beginner prospect who is interested in the sports rehabilitation course. She cares about whether beginners can keep up and whether the schedule fits a full-time job.",
+      "nextAction": "Follow up with a short planning call. Confirm her current role, weekly study time, and preferred cohort. Offer beginner module details and schedule options."
+    },
+    {
+      "id": "stu_demo_liam",
+      "nickname": "Liam",
+      "passwordHash": "c2c972754febae2f3b4a973e965911c7:47a596a8bf3e482a7342f8b02ed87a18712cb08788056f2f6944d412b00e0d3b3f4e9090017459de6fa97c06297fe788329ecd577cddba4772c68d8b5e24b3bb",
+      "phone": "+1 555 010 4435",
+      "avatar": "",
+      "userCode": "DEMO1002",
+      "salesId": "",
+      "referrerCode": "",
+      "intentLevel": "high",
+      "createdAt": "2026-05-11T20:42:07.675Z",
+      "lastLoginAt": "2026-05-11T20:42:07.675Z",
+      "name": "Liam Parker",
+      "age": "",
+      "gender": "",
+      "idCard": "",
+      "currentStatus": "Fitness coach, high intent, requested enrollment details.",
+      "profileSummary": "Liam is a high-intent prospect. He asked for the course introduction and shared a phone number for enrollment follow-up. His professional background and preferred schedule still need confirmation.",
+      "nextAction": "Call Liam to confirm coaching background, target skills, preferred cohort, and budget. Share latest pricing, certificate policy, and enrollment checklist after confirmation."
+    }
+  ],
+  "chats": [
+    {
+      "id": "chat_demo_maya_1",
+      "studentId": "stu_demo_maya",
+      "studentNickname": "Maya",
+      "question": "Hi, I am a complete beginner. Is this course suitable for me?",
+      "answer": "Hi Maya, yes, the demo course is designed to be beginner-friendly. You would start with online preparation and then attend offline practical sessions where coaches guide assessment and exercise planning step by step.\n\nThe main expectation is that you complete the preparation before each offline phase and keep practicing after class. If you want, I can help you compare the beginner path and the next cohort schedule.",
+      "images": [],
+      "mode": "ai",
+      "createdAt": "2026-05-12T05:42:47.541Z"
+    },
+    {
+      "id": "chat_demo_maya_2",
+      "studentId": "stu_demo_maya",
+      "studentNickname": "Maya",
+      "question": "How long does it take? I work full time.",
+      "answer": "The demo course uses a mixed format: online preparation plus 12 offline practical days delivered in 4 phases. That structure is meant to be easier for working professionals than one long block of training.\n\nBefore recommending a cohort, I would check your availability for the next 2-3 months and then match you with a schedule that is realistic.",
+      "images": [],
+      "mode": "ai",
+      "createdAt": "2026-05-12T05:48:12.000Z"
+    },
+    {
+      "id": "chat_demo_liam_1",
+      "studentId": "stu_demo_liam",
+      "studentNickname": "Liam",
+      "question": "Can you give me the current course introduction?",
+      "answer": "Sure. Apex Recovery is a sports rehabilitation training program with online preparation and 12 offline practical training days. It covers lumbar-pelvic, lower limb, upper limb, and neck-shoulder modules.\n\nThe course is useful for fitness coaches, rehabilitation practitioners, Pilates instructors, sports science students, and motivated beginners. It focuses on assessment, movement analysis, rehabilitation planning, and practical coaching.\n\nI should also be clear that certificate policy, pricing, and cohort dates must follow the latest confirmed course information.",
+      "images": [],
+      "mode": "ai",
+      "createdAt": "2026-05-11T20:43:26.335Z"
+    },
+    {
+      "id": "chat_demo_liam_2",
+      "studentId": "stu_demo_liam",
+      "studentNickname": "Liam",
+      "question": "I am very interested. Can you register my phone number first? It is +1 555 010 4435.",
+      "answer": "Thanks Liam, I have noted your phone number for follow-up in this demo workflow. Before moving to enrollment, I would still suggest confirming your current coaching background, target skills, preferred schedule, and certificate expectations.\n\nAfter that, the team can confirm the latest pricing, cohort dates, seat availability, and enrollment checklist.",
+      "images": [],
+      "mode": "ai",
+      "createdAt": "2026-05-11T20:45:58.380Z"
+    }
+  ],
+  "followUps": [
+    {
+      "id": "fu_demo_liam_1",
+      "studentId": "stu_demo_liam",
+      "adminId": "adm_1778530824793_8wckcz",
+      "adminName": "System Administrator",
+      "content": "High-intent prospect. Needs follow-up on latest pricing, certificate policy, and next cohort availability.",
+      "createdAt": "2026-05-12T07:10:00.000Z"
+    }
+  ],
+  "aiAnalysis": [
+    {
+      "id": "analysis_demo_maya",
+      "studentId": "stu_demo_maya",
+      "intentLevel": "medium",
+      "nickname": "Maya",
+      "name": "Maya Chen",
+      "phone": "+1 555 010 1101",
+      "age": "28",
+      "gender": "Female",
+      "idCard": "",
+      "currentStatus": "Beginner prospect, interested in schedule and learning difficulty.",
+      "summary": "Maya is interested in the course but has beginner anxiety and schedule concerns. She is not yet ready to enroll without understanding the learning path and time commitment.",
+      "concerns": [
+        "Beginner learning difficulty",
+        "Full-time work schedule",
+        "Time commitment"
+      ],
+      "interestedProjects": [
+        "Apex Recovery AOPT Sports Rehabilitation Course"
+      ],
+      "nextAction": "Offer a beginner learning path explanation and ask for her weekly available study time. Recommend a realistic cohort only after schedule confirmation.",
+      "createdAt": "2026-05-12T06:08:42.083Z"
+    },
+    {
+      "id": "analysis_demo_liam",
+      "studentId": "stu_demo_liam",
+      "intentLevel": "high",
+      "nickname": "Liam",
+      "name": "Liam Parker",
+      "phone": "+1 555 010 4435",
+      "age": "",
+      "gender": "",
+      "idCard": "",
+      "currentStatus": "Fitness coach, high intent, requested enrollment details.",
+      "summary": "Liam requested the course introduction and shared his phone number, indicating high intent. He still needs qualification around background, schedule, budget, and certificate expectations.",
+      "concerns": [
+        "Needs latest pricing",
+        "Needs certificate policy confirmation",
+        "Needs cohort availability"
+      ],
+      "interestedProjects": [
+        "Apex Recovery AOPT Sports Rehabilitation Course"
+      ],
+      "nextAction": "Call Liam, confirm fit, and provide the latest enrollment details. If fit is confirmed, move him to the enrollment checklist.",
+      "createdAt": "2026-05-12T06:59:20.920Z"
+    }
+  ],
+  "knowledgeSuggestions": [],
+  "courses": [],
+  "courseSchedules": [],
+  "certificates": [],
+  "studentSessions": [],
+  "adminSessions": [],
+  "adminUsers": [
+    {
+      "id": "adm_1778530824793_8wckcz",
+      "username": "admin",
+      "passwordHash": "62ee90411f1c22d719732b9cd4e986ea:5227b963542847969513f6efe47315d9aa73d32386f91aa2ccd306871bfbd282dc9228088cfe1fdd948ef38ebcb6035a7958811431cc1dfaf0f3c5c4e5703b5e",
+      "realName": "System Administrator",
+      "role": "super_admin",
+      "status": "active",
+      "createdAt": "2026-05-11T20:20:24.827Z"
+    }
+  ]
+}

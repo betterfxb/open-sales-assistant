@@ -24,7 +24,7 @@ For Chinese readers, see [README.zh-CN.md](README.zh-CN.md) for the full Chinese
 - Admin operation logs for sign-in, data export/backup, knowledge, material, customer, certificate, and settings changes.
 - Certificate record import and query demo flow.
 - JSON-file storage for local development and single-instance trials, plus an optional PostgreSQL adapter and JSON migration/backup tools.
-- English-first UI with an English/Chinese switch for customer chat, admin login, and admin console.
+- Chinese-first UI with an English/Chinese switch for customer chat, admin login, and admin console.
 - English and Chinese demo fixtures. Local demo mode can switch the demo dataset together with the UI language.
 
 ## Quick Start
@@ -164,7 +164,7 @@ npm run reset-demo:en
 npm run reset-demo:zh
 ```
 
-The default UI language is English. Selecting Chinese from the UI switches the interface to Chinese and, in local demo mode, switches the demo dataset to the Chinese fixture. In production, public demo switching is disabled unless `DEMO_LANGUAGE_SWITCH=true` is explicitly configured.
+The default UI language is Simplified Chinese. The checked-in demo dataset is English. Selecting a language from the UI switches the interface and, in local demo mode, loads the matching demo fixture. In production, public demo switching is disabled unless `DEMO_LANGUAGE_SWITCH=true` is explicitly configured.
 
 ## Open Source Boundary
 

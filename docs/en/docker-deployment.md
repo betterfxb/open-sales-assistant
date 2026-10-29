@@ -48,7 +48,7 @@ Do not commit `.env` to GitHub.
 
 If `AI_API_KEY` is empty, the app still starts and uses local fallback responses for AI-dependent flows.
 
-The default UI and demo dataset are English. Set `DEMO_LANGUAGE_SWITCH=true` only when you intentionally want public UI language switching to also replace the demo dataset on that deployment.
+The default UI is Simplified Chinese, while the checked-in demo dataset is an English training-course sales scenario. Set `DEMO_LANGUAGE_SWITCH=true` only when you intentionally want public UI language switching to also replace the demo dataset on that deployment.
 
 ## 3. Start
 

@@ -52,7 +52,7 @@ AI_VISION_MODEL=kimi-k2.6
 
 Production deployments must set a unique `ADMIN_PASSWORD` of at least 12 characters and use a server-side `.env` for the AI API key. Do not upload `.env` to GitHub or store API keys in `data/db.json`.
 
-The default UI and demo dataset are English. Keep `DEMO_LANGUAGE_SWITCH=false` for production unless this deployment is intentionally used as a public demo that can reset its demo dataset.
+The default UI is Simplified Chinese, while the checked-in demo dataset is an English training-course sales scenario. Keep `DEMO_LANGUAGE_SWITCH=false` for production unless this deployment is intentionally used as a public demo that can reset its demo dataset.
 
 This project calls OpenAI-compatible `/chat/completions` APIs. Other compatible providers can be used:
 

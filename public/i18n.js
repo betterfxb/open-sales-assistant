@@ -36,6 +36,15 @@ const exactText = {
   '知识库编辑': 'Knowledge Base',
   '咨询配置': 'Settings',
   '知识库总览': 'Knowledge Overview',
+  '最近操作': 'Recent activity',
+  '销售工作台': 'Sales workspace',
+  '线索档案': 'Lead profile',
+  '咨询客户': 'Customers',
+  '客户档案': 'Profile',
+  '证书管理': 'Certificates',
+  '知识库': 'Knowledge',
+  '设置': 'Settings',
+  '团队权限': 'Team access',
   'AI 全量整理知识库': 'Regenerate Knowledge with AI',
   '素材数量': 'Materials',
   '图片素材': 'Images',
@@ -234,7 +243,7 @@ function getInitialLang() {
     return queryLang;
   }
   const saved = localStorage.getItem(I18N_STORAGE_KEY);
-  return supportedLangs.has(saved) ? saved : 'en';
+  return supportedLangs.has(saved) ? saved : 'zh-CN';
 }
 
 let currentLang = getInitialLang();

@@ -972,8 +972,8 @@ label { display: grid; gap: 7px; color: var(--muted); font-size: 13px; font-weig
   .topbar { align-items: flex-start; flex-direction: column; }
   .top-actions { justify-content: flex-start; }
   .student-layout, .admin-layout, .material-grid, .editor-grid, .knowledge-form-grid, .metrics, .student-admin-layout { grid-template-columns: 1fr; }
-  .admin-nav { display: flex; overflow-x: auto; }
-  .admin-tab { white-space: nowrap; }
+  .admin-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); overflow: visible; }
+  .admin-tab { white-space: normal; text-align: center; }
   .phone-shell { min-height: 680px; }
 }
 

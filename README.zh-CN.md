@@ -32,7 +32,7 @@ Open Sales Assistant 是一个自部署的开源销售助手 starter kit。目�
 - 证书记录导入和查询 demo 流程。
 - 基于 JSON 文件的本地存储，适合开发和小规模自部署试用。
 - 可选 PostgreSQL 存储和 JSON 导入、备份与恢复；JSON 继续作为默认轻量模式。
-- 默认英文界面，前台咨询、后台登录和管理后台支持中英文界面切换。
+- 默认简体中文界面，前台咨询、后台登录和管理后台支持中英文切换。
 - 提供英文和中文 demo fixture。本地 demo 模式下，切换界面语言时会同步切换 demo 数据。
 
 ## 快速启动
@@ -166,7 +166,7 @@ npm run reset-demo:en
 npm run reset-demo:zh
 ```
 
-默认界面语言是英文。点击中文语言按钮会把界面切换成中文；在本地 demo 模式下，也会同步把 demo 数据切换到中文 fixture。生产环境默认禁止公开切换 demo 数据，除非显式配置 `DEMO_LANGUAGE_SWITCH=true`。
+默认界面语言是简体中文。仓库内的默认 demo 数据仍是英文课程销售场景；在本地 demo 模式下切换语言时，也会同步加载对应语言的 demo fixture。生产环境默认禁止公开切换 demo 数据，除非显式配置 `DEMO_LANGUAGE_SWITCH=true`。
 
 ## 开源边界
 

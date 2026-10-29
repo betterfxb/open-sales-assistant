@@ -43,6 +43,8 @@ cp .env.example .env
 npm run dev
 ```
 
+`npm run dev` 用于本地开发。若要在 Windows、macOS 或 Linux 上以生产模式启动，执行 `npm start`；生产模式要求 `.env` 中配置至少 12 位的唯一 `ADMIN_PASSWORD`，并默认关闭 demo 语言切换。
+
 Docker 快速启动：
 
 ```bash

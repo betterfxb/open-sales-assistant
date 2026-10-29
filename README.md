@@ -35,6 +35,8 @@ cp .env.example .env
 npm run dev
 ```
 
+Use `npm run dev` for local development. To run in production mode on Windows, macOS, or Linux, use `npm start`. Production mode requires a unique `ADMIN_PASSWORD` of at least 12 characters in `.env` and disables demo language switching by default.
+
 Docker quick start:
 
 ```bash

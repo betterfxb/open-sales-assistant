@@ -13,6 +13,7 @@ import { createStorage } from './storage/index.js';
 import { currentSchemaVersion, defaultSettings, migrateDb, normalizePlaybookItem } from './db-schema.js';
 
 dotenv.config({ override: process.env.NODE_ENV !== 'test' });
+const isProductionMode = process.env.NODE_ENV === 'production' || process.argv.includes('--production');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,7 +35,7 @@ const port = Number(process.env.PORT || 3100);
 const publicBaseUrl = process.env.PUBLIC_BASE_URL || `http://localhost:${port}`;
 const storageDriver = (process.env.STORAGE_DRIVER || 'json').toLowerCase();
 if (!['json', 'postgres'].includes(storageDriver)) throw new Error(`Unsupported STORAGE_DRIVER "${storageDriver}".`);
-const demoLanguageSwitchEnabled = process.env.DEMO_LANGUAGE_SWITCH === 'true' || process.env.NODE_ENV !== 'production';
+const demoLanguageSwitchEnabled = process.env.DEMO_LANGUAGE_SWITCH === 'true' || !isProductionMode;
 const adminSessionHours = 12;
 
 await fs.mkdir(uploadsDir, { recursive: true });
@@ -341,7 +342,7 @@ async function ensureInitialAdmin() {
     if (!db.adminUsers.length) {
       const username = process.env.ADMIN_USERNAME || 'admin';
       const password = process.env.ADMIN_PASSWORD || 'Admin@123456';
-      if (process.env.NODE_ENV === 'production' && (password.length < 12 || ['change_this_password', 'Admin@123456'].includes(password) || password.includes('请设置'))) {
+      if (isProductionMode && (password.length < 12 || ['change_this_password', 'Admin@123456'].includes(password) || password.includes('请设置'))) {
         throw new Error('Production requires ADMIN_PASSWORD to be a unique password of at least 12 characters.');
       }
       db.adminUsers.push({

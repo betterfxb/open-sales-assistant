@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node server/index.js",
-    "start": "NODE_ENV=production node server/index.js",
+    "start": "node server/index.js --production",
     "check": "node --check server/index.js && node --check server/db-schema.js && node --check server/storage/index.js && node --check server/storage/json-store.js && node --check server/storage/postgres-store.js && node --check scripts/migrate-to-postgres.js && node --check scripts/storage-test.js && node --check scripts/smoke-test.js && node --check public/i18n.js && node --check public/admin.js && node --check public/chat.js && node --check public/login.js",
     "smoke": "node scripts/smoke-test.js",
     "eval": "node scripts/eval-sales-replies.js",
